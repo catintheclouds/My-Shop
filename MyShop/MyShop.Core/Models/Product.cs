@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyShop.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public string Id { get; set; }
         [StringLength(20)]
         [System.ComponentModel.DisplayName("Product Name")]
         public string Name { get; set; }
@@ -18,9 +17,9 @@ namespace MyShop.Core.Models
         public decimal Price { get; set; }
         public string Category { get; set; } //to use as a GROUP for products
         public string Image { get; set; } //contains URL for image
-        public Product() //constructor; to always generate a ID number per instance of product
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
+        //public Product() //constructor; to always generate a ID number per instance of product
+        //{
+        //    this.Id = Guid.NewGuid().ToString();
+        //}
     }
 }
