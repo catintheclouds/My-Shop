@@ -76,7 +76,7 @@ namespace MyShop.Services
                     BasketId = basket.Id,
                     ProductId = productId,
                     Quantity = 1
-                };
+                }; //note this semicolon
                 basket.BasketItems.Add(item);
             }
             else
