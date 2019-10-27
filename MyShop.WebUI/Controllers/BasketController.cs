@@ -30,6 +30,11 @@ namespace MyShop.WebUI.Controllers
             basketService.RemoveFromBasket(this.HttpContext, Id);
             return RedirectToAction("Index");
         }
+        public ActionResult RemoveAllFromBasket(string Id)
+        {
+            basketService.RemoveAllFromBasket(this.HttpContext, Id);
+            return RedirectToAction("Index");
+        }
         public PartialViewResult BasketSummary()
         {
             var basketSummary = basketService.GetBasketSummary(this.HttpContext);

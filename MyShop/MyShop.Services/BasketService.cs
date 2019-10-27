@@ -105,6 +105,17 @@ namespace MyShop.Services
                 }
             }
         }
+        public void RemoveAllFromBasket(HttpContextBase httpContext, string itemId) //basketitem-id instead of product-id
+        {
+            Basket basket = GetBasket(httpContext, true);
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.Id == itemId);
+
+            if (item != null)
+            {
+                basket.BasketItems.Remove(item);
+                basketContext.Commit();
+            }
+        }
         public List<BasketItemViewModel> GetBasketItems (HttpContextBase httpContext)
         {
             Basket basket = GetBasket(httpContext, false); //no need to create if null, this is a simple RETRIEVAL

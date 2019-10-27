@@ -22,6 +22,7 @@
             Line Total
         </th>
         <th></th> <!--for delete button-->
+        <th></th> <!--for deleteAll button-->
     </tr>
 
 @foreach (var item in Model) {
@@ -42,6 +43,9 @@
     <td>
         <a href="@Url.Action("RemoveFromBasket", "Basket", new { Id = item.Id })" class="btn btn-danger">Delete</a>
         @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+    </td>
+    <td>
+        <a href="@Url.Action("RemoveAllFromBasket", "Basket", new { Id = item.Id })" class="btn btn-danger">Delete All</a>
     </td>
 </tr>
 }
