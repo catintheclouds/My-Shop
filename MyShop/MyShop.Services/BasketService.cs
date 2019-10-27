@@ -93,8 +93,16 @@ namespace MyShop.Services
 
             if (item != null)
             {
-                basket.BasketItems.Remove(item);
-                basketContext.Commit();
+                if (item.Quantity == 1)
+                {
+                    basket.BasketItems.Remove(item);
+                    basketContext.Commit();
+                }
+                else
+                {
+                    item.Quantity = item.Quantity - 1;
+                    basketContext.Commit();
+                }
             }
         }
         public List<BasketItemViewModel> GetBasketItems (HttpContextBase httpContext)

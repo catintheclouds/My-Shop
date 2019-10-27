@@ -23,7 +23,7 @@ namespace MyShop.WebUI.Controllers
         public ActionResult AddToBasket (string Id)
         {
             basketService.AddToBasket(this.HttpContext, Id);
-            return RedirectToAction("Index");
+            return Redirect("~/Home/Index/"); //woot I did it!
         }
         public ActionResult RemoveFromBasket (string Id)
         {
