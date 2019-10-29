@@ -35,7 +35,7 @@ namespace MyShop.WebUI.Controllers
             model.Products = products;
             model.ProductCategories = categories;
 
-            return View(model);
+            return View(model); //returns a "ViewResult" of "ProductListViewModel"
         }
         public ActionResult Details(string Id)
         {
