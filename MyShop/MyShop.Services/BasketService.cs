@@ -148,9 +148,11 @@ namespace MyShop.Services
             {
                 int? basketCount = (from item in basket.BasketItems//? allows a null value to be stored (i.e. no basket item) and prevents an error
                                     select item.Quantity).Sum(); //if no basket item, will return a null
+                
                 decimal? basketTotal = (from item in basket.BasketItems
                                         join p in productContext.Collection() on item.ProductId equals p.Id
                                         select item.Quantity * p.Price).Sum();
+                
                 model.BasketCount = basketCount ?? 0; //if there is a basketCount, return basketCount; if null, return 0.
                 model.BasketTotal = basketTotal ?? decimal.Zero;
 
